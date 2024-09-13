@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Add update tor for security reason
+# It will take longer to activate.
+apt-get update && apt-get upgrade -y --only-upgrade tor
+
 NICK=${NICKNAME:-WebTunnelBr}
 
 echo "Using NICKNAME=${NICK}, OR_PORT=${OR_PORT}, PT_PORT=${PT_PORT}, and EMAIL=${EMAIL}."
