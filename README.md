@@ -1,5 +1,3 @@
-# Almost files in this repository was copied from [Tor repository](https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/webtunnel).
-
 # WebTunnel
 
 Pluggable Transport based on HTTP Upgrade(HTTPT)
