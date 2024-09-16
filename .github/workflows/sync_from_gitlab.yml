@@ -21,6 +21,7 @@ jobs:
     - name: Check for changes
       run: |
         rm -rf gitlab_repo/
+        cat README.txt | sed -i '1i## Notice<br>This repository was cloned from [gitlab.torproject.org](https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/webtunnel)' README.md
         git config --global user.name "github-actions"
         git config --global user.email "actions@github.com"
         if git diff --quiet; then
