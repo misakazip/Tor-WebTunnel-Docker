@@ -8,6 +8,10 @@ on:
       - '.github/**'
   pull_request:
     branches: [ "main" ]
+  workflow_run:
+    workflows: ["Sync from GitLab"]
+    types:
+      - completed
 
 jobs:
   buildx:
