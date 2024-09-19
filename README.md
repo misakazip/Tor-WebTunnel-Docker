@@ -1,4 +1,4 @@
-## Notice<br>This repository was cloned from [gitlab.torproject.org](https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/webtunnel)
+This repository was cloned from [gitlab.torproject.org](https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/webtunnel).This is NOT official project.DO NOT seek supprt to Tor Project Forum about issues or problem. Some files were modified by [GitHub Actions script](https://github.com/misakazip/Tor-WebTunnel-Docker/blob/main/.github/workflows/sync_from_gitlab.yml).
 # WebTunnel
 
 Pluggable Transport based on HTTP Upgrade(HTTPT)
