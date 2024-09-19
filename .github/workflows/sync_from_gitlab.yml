@@ -13,6 +13,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    -
+      name: Import GPG key
+      uses: crazy-max/ghaction-import-gpg@v6
+      with:
+        gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+        passphrase: ${{ secrets.PASSPHRASE }}
+
     - name: Clone GitLab repository
       run: |
         git clone https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/webtunnel.git gitlab_repo
