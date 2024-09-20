@@ -28,7 +28,7 @@ jobs:
     - name: Check for changes
       run: |
         rm -rf gitlab_repo/
-        cat README.txt | sed -i '1iThis repository was cloned from [gitlab.torproject.org](https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/webtunnel).This is NOT official project.DO NOT seek supprt to Tor Project Forum about issues or problem. Some files were modified by [GitHub Actions script](https://github.com/misakazip/Tor-WebTunnel-Docker/blob/main/.github/workflows/sync_from_gitlab.yml).' README.md
+        cat README.txt | sed -i '1iThis repository was cloned from [gitlab.torproject.org](https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/webtunnel).This is NOT official project.DO NOT seek supprt to Tor Project Forum about issues of the docker images. Some files were modified by [GitHub Actions script](https://github.com/misakazip/Tor-WebTunnel-Docker/blob/main/.github/workflows/sync_from_gitlab.yml).' README.md
         sed -i s@thetorproject/webtunnel-bridge:latest@ghcr.io/misakazip/tor-webtunnel:latest@g release/container/docker-compose.yml
         git config --global user.name "github-actions"
         git config --global user.email "actions@github.com"
