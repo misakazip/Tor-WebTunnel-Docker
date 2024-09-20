@@ -15,10 +15,14 @@ jobs:
 
     -
       name: Import GPG key
-      uses: crazy-max/ghaction-import-gpg@v6
-      with:
-        gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-        passphrase: ${{ secrets.PASSPHRASE }}
+      run: |
+        echo -n "$GPG_SIGNING_KEY" | base64 --decode | gpg --import
+        git config --global user.name "misakazip"
+        git config --global user.email "79515833+misakazip@users.noreply.github.com"
+        git config --global user.signingkey 0909A0DB654AF22C6C7BD31E002AE647D748DA01
+        git config --global commit.gpgsign true
+      env:
+        GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
 
     - name: Clone GitLab repository
       run: |
@@ -30,8 +34,6 @@ jobs:
         rm -rf gitlab_repo/
         cat README.txt | sed -i '1iThis repository was cloned from [gitlab.torproject.org](https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/webtunnel).This is NOT official project.DO NOT seek supprt to Tor Project Forum about issues of the docker images. Some files were modified by [GitHub Actions script](https://github.com/misakazip/Tor-WebTunnel-Docker/blob/main/.github/workflows/sync_from_gitlab.yml).' README.md
         sed -i s@thetorproject/webtunnel-bridge:latest@ghcr.io/misakazip/tor-webtunnel:latest@g release/container/docker-compose.yml
-        git config --global user.name "github-actions"
-        git config --global user.email "actions@github.com"
         if git diff --quiet; then
           echo "No changes to commit"
         else
